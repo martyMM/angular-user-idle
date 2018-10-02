@@ -1,6 +1,6 @@
 {
   "name": "angular-user-idle",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "User's idle service for Angular 5+",
   "main": "user-idle.umd.js",
   "types": "user-idle.d.ts",
@@ -16,7 +16,9 @@
     "prebuild": "rimraf dist",
     "build": "ngc && rollup -c",
     "postbuild": "npm run copy && npm run clean && npm run copy:srcts",
-    "publish": "cd ./dist && npm publish"
+    "publish": "cd ./dist && npm publish",
+    "create-package": "ng-packagr -p ./src/package.json",
+    "publish-package": "npm publish pkg/ --registry=https://www.myget.org/F/rhinodox/npm/"
   },
   "repository": {
     "type": "git",
@@ -29,12 +31,12 @@
   "author": "Vasyl Efimenko <rednez@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@angular/core": "^5.0.0",
+    "@angular/core": "^5.2.11",
     "rxjs": "^5.5.8"
   },
   "devDependencies": {
-    "@angular/compiler": "^5.0.0",
-    "@angular/compiler-cli": "^5.0.0",
+    "@angular/compiler": "^5.2.11",
+    "@angular/compiler-cli": "^5.2.11",
     "copy": "^0.3.1",
     "del": "^3.0.0",
     "rimraf": "^2.6.1",
@@ -43,6 +45,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-typescript2": "^0.12.0",
-    "typescript": "~2.6.2"
+    "typescript": "~2.6.2",
+    "ng-packagr": "~1.7.0"
   }
 }
